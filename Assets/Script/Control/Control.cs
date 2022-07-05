@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Control : MonoBehaviour
 {
+    public Animator animator;
 
+    
     void Update()
     {
 
@@ -18,6 +20,16 @@ public class Control : MonoBehaviour
         {
             if (transform.position.x >= 1.4) return;
             transform.position += new Vector3(1.5f, 0, 0);
+        }
+    }
+
+    // collision : 충돌물체에 대한정보
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            animator.SetTrigger("Death");
+            GameManager.instance.speed = 0;
         }
     }
 }
