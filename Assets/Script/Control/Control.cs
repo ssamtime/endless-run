@@ -16,11 +16,14 @@ public class Control : MonoBehaviour
             if (transform.position.x <= -1.4) return;
             
             transform.position += new Vector3(-1.5f, 0, 0);
+            SoundControl.Instance.SoundCall("Move");
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (transform.position.x >= 1.4) return;
+
             transform.position += new Vector3(1.5f, 0, 0);
+            SoundControl.Instance.SoundCall("Move");
         }
     }
 
@@ -32,6 +35,7 @@ public class Control : MonoBehaviour
             GameManager.instance.speed = 0;
             GameManager.instance.state = false;
 
+            SoundControl.Instance.SoundCall("Collision");
         }
     }
     // collision : 충돌물체에 대한정보
