@@ -5,7 +5,8 @@ using UnityEngine;
 public class RoadManager : MonoBehaviour
 {
     public GameObject road;
-   
+    
+
     List<GameObject> roadList;
 
     int firstRoad =0;
@@ -13,11 +14,11 @@ public class RoadManager : MonoBehaviour
 
     Vector3 nextRoad =Vector3.left;
 
-
     void Start()
     {
         roadList = new List<GameObject>();
 
+        
         for(int i=0;i<5;i++)
         {
             roadList.Add(Instantiate(road, nextRoad, Quaternion.identity));
@@ -34,6 +35,8 @@ public class RoadManager : MonoBehaviour
 
         if(roadList[lastRoad].transform.position.z <= -20)
         {
+            
+
             // 0= 0-1
             firstRoad = lastRoad - 1;
             if(firstRoad < 0)
@@ -48,6 +51,8 @@ public class RoadManager : MonoBehaviour
 
             if(lastRoad>=roadList.Count)
             {
+                
+
                 lastRoad = 0;
             }
         }

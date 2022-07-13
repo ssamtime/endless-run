@@ -10,4 +10,12 @@ public class Coin : MonoBehaviour
         
         transform.Rotate(Vector3.forward*100 * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="Character")
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

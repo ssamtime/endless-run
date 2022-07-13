@@ -16,7 +16,7 @@ public class ObjectPool : MonoBehaviour
         
         for(int i=0;i<5;i++)
         {
-            GameObject tempPrefab = Instantiate(obstacle, new Vector3(0, -0.4f, 7.5f), Quaternion.identity);
+            GameObject tempPrefab = Instantiate(obstacle, new Vector3(0, -0.4f, 10.0f), Quaternion.identity);
             queue.Enqueue(tempPrefab);
             tempPrefab.SetActive(false);
         }
