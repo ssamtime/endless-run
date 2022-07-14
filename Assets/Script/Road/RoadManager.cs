@@ -6,7 +6,6 @@ public class RoadManager : MonoBehaviour
 {
     public GameObject road;
     
-
     List<GameObject> roadList;
 
     int firstRoad =0;
@@ -35,7 +34,6 @@ public class RoadManager : MonoBehaviour
 
         if(roadList[lastRoad].transform.position.z <= -20)
         {
-            
 
             // 0= 0-1
             firstRoad = lastRoad - 1;
@@ -51,7 +49,6 @@ public class RoadManager : MonoBehaviour
 
             if(lastRoad>=roadList.Count)
             {
-                
 
                 lastRoad = 0;
             }

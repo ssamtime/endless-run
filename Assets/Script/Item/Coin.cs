@@ -14,7 +14,11 @@ public class Coin : MonoBehaviour
     {
         if(other.gameObject.tag=="Character")
         {
+            GameManager.instance.coin += 10;
             gameObject.SetActive(false);
+
+            GameManager.instance.Save();
+            SoundControl.Instance.SoundCall("Coin");
         }
     }
 
