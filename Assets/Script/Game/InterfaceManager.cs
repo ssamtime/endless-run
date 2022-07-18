@@ -24,7 +24,16 @@ public class InterfaceManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
-    
+    public void ExitButton()   
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+
+#else
+        Application.Quit();
+#endif
+
+    }
     public void ActiveUI()
     {
         window.SetActive(true);

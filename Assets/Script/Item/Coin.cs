@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     
+
     void Update()
     {
         transform.Rotate(Vector3.forward*100 * Time.deltaTime);
@@ -14,6 +15,8 @@ public class Coin : MonoBehaviour
     {
         if(other.gameObject.tag=="Character")
         {
+         
+
             GameManager.instance.coin += 10;
             gameObject.SetActive(false);
 

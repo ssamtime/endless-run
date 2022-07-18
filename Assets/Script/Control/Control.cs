@@ -5,7 +5,7 @@ using UnityEngine;
 public class Control : MonoBehaviour
 {
     public Animator animator;
-    public ParticleSystem effect;
+
     
     void Update()
     {
@@ -38,10 +38,7 @@ public class Control : MonoBehaviour
             SoundControl.Instance.SoundCall("Collision");
         }
         
-        if(other.gameObject.tag=="Coin")
-        {
-            effect.Play();
-        }
+       
     }
     // collision : 충돌물체에 대한정보
     /*private void OnCollisionEnter(Collision collision)
