@@ -15,14 +15,28 @@ public class DataManager : MonoBehaviour
 
     public Text[] priceText;
     public Image[] shapeImage;
+    public Button[] PurchaseButton;
 
     void Start()
     {
         for(int i =0; i<information.Length;i++)
         {
-            priceText[i].text = information[i].price.ToString();
+            priceText[i].text = information[i].price.ToString() + "$";
             shapeImage[i].sprite = information[i].sprite;
         }
+    }
+
+    private void Update()
+    {
+        if(GameManager.instance.hat>0)
+        {
+            PurchaseButton[0].interactable = false;
+        }
+        if(GameManager.instance.rod>0)
+        {
+            PurchaseButton[1].interactable = false;
+        }
+            
     }
 
     public void Purchase(int index)
@@ -30,13 +44,16 @@ public class DataManager : MonoBehaviour
         if(GameManager.instance.coin >= information[index].price)
         {
             GameManager.instance.coin -= information[index].price;
+           switch(index)
+            {
+                case 0: GameManager.instance.hat++;
+                    break;
+                case 1: GameManager.instance.rod++;
+                    break;
+            }
             GameManager.instance.Save();
         }
         
     }
 
-    void Update()
-    {
-        
-    }
 }

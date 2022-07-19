@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     public float speed;
     public bool state; //true false 값만 저장할수있음
     public int coin;
+    public int hat;
+    public int rod;
 
-    void Start()
+    void Awake()
     {
         Load();
         if (instance == null)
@@ -26,10 +28,15 @@ public class GameManager : MonoBehaviour
     public void Save()
     {
         PlayerPrefs.SetInt("Coin",coin);
+        PlayerPrefs.SetInt("Hat", hat);
+        PlayerPrefs.SetInt("Rod", rod);
     }
     public void Load()
     {
         coin = PlayerPrefs.GetInt("Coin");
+        hat = PlayerPrefs.GetInt("Hat");
+        rod = PlayerPrefs.GetInt("Rod");
+
     }
 
  
